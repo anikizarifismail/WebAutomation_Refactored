@@ -36,7 +36,29 @@ namespace AmazonWebPageAutomation_Refactored.StepDefinitions
         [Then(@"First laptop item should be priced more than \$(.*)")]
         public void ThenFirstLaptopItemShouldBePricedMoreThan(Decimal p0)
         {
+            Console.WriteLine(p0);
             Assert.Greater(webPage.GetPriceOfItem(1), p0);
         }
+
+        [When(@"Query for '([^']*)' using search bar")]
+        public void WhenQueryForUsingSearchBar(string item)
+        {
+            webPage.Search(item);
+        }
+
+        [Then(@"First handbag item should be priced more than \$(.*)")]
+        public void ThenFirstHandbagItemShouldBePricedMoreThan(Decimal p0)
+        {
+            Console.WriteLine(">>>Price :", p0);
+            Assert.Greater(webPage.GetPriceOfItem(1), p0);
+        }
+
+        [Then(@"First listed item should be priced more than '([^']*)'")]
+        public void ThenFirstListedItemShouldBePricedMoreThan(Decimal price)
+        {
+            Console.WriteLine(">>>Price :", price);
+            Assert.Greater(webPage.GetPriceOfItem(1), price);
+        }
+
     }
 }

@@ -11,8 +11,8 @@ namespace AmazonWebPageAutomation_Refactored.Source.Page
 {
     public class AmazonWebPage
     {
-        IWebDriver _driver;
-        const string _domainUrl = "https://www.amazon.com/", _priceList = "//span[@class='a-price']", 
+        readonly IWebDriver _driver;
+        private const string _domainUrl = "https://www.amazon.com/", _priceList = "//span[@class='a-price']", 
             _price = "//span[@class='a-offscreen']";
 
         [FindsBy(How = How.Id, Using = "twotabsearchtextbox")]
